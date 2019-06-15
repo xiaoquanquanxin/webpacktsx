@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "sourceMap": true,          //source map
+    //source map
+    "sourceMap": true,
     "noImplicitAny": true,
     //    "module": "es6",//??????? is necessary?
     "target": "es5",
     "jsx": "react",
     "allowJs": true
-  }
+  },
+  "files": [
+    "./src/index.tsx"
+  ],
+  "exclude": [ //排出不编译的目录
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }
