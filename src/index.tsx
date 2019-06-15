@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import _ from './other';
-console.log(_)
+// import _ from './other';
+// console.log(_)
 
 interface IAppProps {
 }
