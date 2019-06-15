@@ -1,0 +1,23 @@
+1.使用Webpack完成TypeScript的环境配置 设置好ts环境配置文件
+2.编写第一个tsx文件并使用 babel-loader进行设置
+3.完成inversify基于koa的后台服务搭建
+4.完成基于Webpack开发环境和上线环境的详细设置
+
+
+
+1.webpack，ts集成环境，编译tsx
+2.入口文件是tsx，tsx的configuration，要知道这个config做什么
+3.babel-loader
+4.postcss-loader
+5.alias
+6.错误调试
+7.上线环境，tomd5，压缩
+8.全部ts
+9.node环境
+
+
+最终，commit就可以跑webpack，Jenkins
+
+//  others:
+inversify-koa-utils
+真假路由区分
