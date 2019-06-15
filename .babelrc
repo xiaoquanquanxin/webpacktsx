@@ -1,23 +1,10 @@
+
+
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "targets": { "chrome": 74 },
-        "ignoreBrowserslistConfig": true,
-        "useBuiltIns": false,
-        "modules": false,
-        "exclude": ["transform-typeof-symbol"]
-      }
-    ],
-    [
-      "@babel/preset-react",
-      {
-        "targets": "last 2 versions, ie 11",
-        "modules": false
-      }
-    ],
-    ["@babel/preset-typescript"]
-  ],
-  "plugins": [["@babel/plugin-syntax-dynamic-import"], ["@babel/plugin-proposal-decorators", { "legacy": true }], ["@babel/plugin-proposal-class-properties", { "loose": true }]]
+    "es2015",
+    "react",
+    "stage-0"
+  ]
 }
+
