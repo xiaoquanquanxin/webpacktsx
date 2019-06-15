@@ -5,7 +5,6 @@ console.log('webpack.common.js // loading  .....................................
 console.log(path.resolve(__dirname, '../dist'));
 module.exports = {
     entry: {
-        app: './src/index.tsx',
         app: path.resolve(__dirname, '../src/index.tsx'),
     },
     output: {
@@ -19,7 +18,12 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.js$/,
+                use: ['babel-loader'],
+                exclude: '/node_moduels/'
+            },
         ]
     },
     resolve: {
