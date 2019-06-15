@@ -1,0 +1,23 @@
+:root {
+    --fontSize: 1rem;
+    --mainColor: red;
+    --bgc: blue;
+    --centered: {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: yellow;
+    };
+}
+
+a {
+    color: var(--mainColor);
+    font-size: var(--fontSize);
+    line-height: calc(var(--fontSize) * 1.5);
+    padding: calc((var(--fontSize) / 2) + 1px);
+}
+
+b {
+    @apply --centered;
+    background-color: var(--bgc);
+}

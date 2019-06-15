@@ -1,17 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+console.log(  path.resolve(__dirname, '../src/web/index.tsx') );
 console.log('webpack.common.js // loading  ...........................................');
 module.exports = {
     entry: {
         // "src/app": path.resolve(__dirname, '../src/index.tsx'),
-        "app": path.resolve(__dirname, '../src/index.tsx'),
+        "app": path.resolve(__dirname, '../src/web/index.tsx'),
         // "servers/app": path.resolve(__dirname, '../servers/entities.ts')
     },
     output: {
         filename: '[name].[hash:8].bundle.js',
         path: path.resolve(__dirname, '../dist'),
-        library: "servers",
     },
     devtool: 'inline-source-map',
     module: {
@@ -28,7 +28,9 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'postcss-loader'],
+                // use: ['style-loader', 'postcss-loader', 'css-loader'],
+                // use: [ 'style-loader', 'postcss-loader' ]
+                use: ['style-loader',  'css-loader'],
             },
         ]
     },
@@ -40,7 +42,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Production',
-            template: path.resolve(__dirname, '../src/template.html'),
+            template: path.resolve(__dirname, '../src/web/template.html'),
         }),
     ],
 
