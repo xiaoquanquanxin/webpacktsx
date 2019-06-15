@@ -8,10 +8,8 @@
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
-
-
     "lib": ["es6", "dom"],
-    "types": ["reflect-metadata"],
+    "types": ["reflect-metadata","node", "lodash"],
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,

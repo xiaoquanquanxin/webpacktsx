@@ -45,7 +45,6 @@ module.exports = {
             template: path.resolve(__dirname, '../src/web/template.html'),
         }),
     ],
-
 };
 
 

@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 
 
 //  other tsx component
-import {JsxComp} from './components/temp.tsx';
+import {JsxComp} from './components/temp/temp.tsx';
 
 interface IAppProps {
 }
@@ -34,4 +34,13 @@ const abd = {
     bbb: 1
 };
 console.log(abd);
+
+alert(process.env.NODE_ENV);
+
+const _ = require('lodash');
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
+
 render(<App/>, document.getElementById('app'))
