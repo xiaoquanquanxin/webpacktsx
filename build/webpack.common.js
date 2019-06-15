@@ -2,14 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 console.log('webpack.common.js // loading  ...........................................');
-console.log(path.resolve(__dirname, '../dist'));
 module.exports = {
     entry: {
-        app: path.resolve(__dirname, '../src/index.tsx'),
+        // "src/app": path.resolve(__dirname, '../src/index.tsx'),
+        "app": path.resolve(__dirname, '../src/index.tsx'),
+        // "servers/app": path.resolve(__dirname, '../servers/entities.ts')
     },
     output: {
         filename: '[name].[hash:8].bundle.js',
-        path: path.resolve(__dirname, '../dist')
+        path: path.resolve(__dirname, '../dist'),
+        library: "servers",
     },
     devtool: 'inline-source-map',
     module: {
@@ -31,7 +33,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js', '.css']
     },
     plugins: [
         // new CleanWebpackPlugin(['dist/*']) for < v2 versions of CleanWebpackPlugin
