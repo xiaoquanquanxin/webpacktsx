@@ -11,6 +11,7 @@ interface IAppProps {
 
 interface IAppState {
 }
+const env = process.env.NODE_ENV;
 
 
 class App extends React.Component<IAppProps, IAppState> {
@@ -20,7 +21,8 @@ class App extends React.Component<IAppProps, IAppState> {
             <div>
                 Hello world
                 <br/>
-                <JsxComp></JsxComp>
+                current env is :<JsxComp data={env}></JsxComp>
+                <br/>
             </div>
             </>
         )
@@ -35,12 +37,12 @@ const abd = {
 };
 console.log(abd);
 
-alert(process.env.NODE_ENV);
 
 const _ = require('lodash');
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
+
 
 render(<App/>, document.getElementById('app'))

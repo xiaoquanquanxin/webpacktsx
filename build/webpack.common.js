@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-console.log(  path.resolve(__dirname, '../src/web/index.tsx') );
+console.log(path.resolve(__dirname, '../src/web/index.tsx'));
 console.log('webpack.common.js // loading  ...........................................');
 module.exports = {
     entry: {
@@ -29,8 +29,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 // use: ['style-loader', 'postcss-loader', 'css-loader'],
-                // use: [ 'style-loader', 'postcss-loader' ]
-                use: ['style-loader',  'css-loader'],
+                use: ['style-loader',
+                    // {loader: 'css-loader', options: {importLoaders: 1}},
+                    'postcss-loader']
+                // use: ['style-loader',  'css-loader'],
             },
         ]
     },
