@@ -8,13 +8,11 @@ console.log(path.resolve(__dirname, '../src/web/index.tsx'));
 console.log('webpack.common.js // loading  ...........................................');
 module.exports = {
     entry: {
-        // "src/app": path.resolve(__dirname, '../src/index.tsx'),
         "app": path.resolve(__dirname, '../src/web/index.tsx'),
-        // "servers/app": path.resolve(__dirname, '../servers/entities.ts')
     },
     output: {
         filename: '[name].[hash:8].bundle.js',
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '../dist/web'),
     },
     devtool: 'inline-source-map',
     module: {
