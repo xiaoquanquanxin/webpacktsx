@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 console.log(path.resolve(__dirname, '../src/web/index.tsx'));
 console.log('webpack.common.js // loading  ...........................................');
 module.exports = {
@@ -26,14 +29,35 @@ module.exports = {
                 use: ['babel-loader'],
                 exclude: '/node_moduels/'
             },
+            // {
+            //     test: /\.css$/,
+            //     // use: ['style-loader', 'postcss-loader', 'css-loader'],
+            //     use: ['style-loader',
+            //         // {loader: 'css-loader', options: {importLoaders: 1}},
+            //         'postcss-loader']
+            //     // use: ['style-loader',  'css-loader'],
+            // },
+            // {
+            //     test: /\.css$/,
+            //     use: ExtractTextPlugin.extract({
+            //         use: "css-loader",
+            //         fallback: "style-loader",
+            //     })
+            // },
             {
                 test: /\.css$/,
-                // use: ['style-loader', 'postcss-loader', 'css-loader'],
-                use: ['style-loader',
-                    // {loader: 'css-loader', options: {importLoaders: 1}},
-                    'postcss-loader']
-                // use: ['style-loader',  'css-loader'],
-            },
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it use publicPath in webpackOptions.output
+                            publicPath: '../'
+                        }
+                    },
+                    "css-loader"
+                ]
+            }
         ]
     },
     resolve: {
@@ -42,11 +66,18 @@ module.exports = {
     plugins: [
         // new CleanWebpackPlugin(['dist/*']) for < v2 versions of CleanWebpackPlugin
         new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        }),
+        // new ExtractTextPlugin("main.css"),
         new HtmlWebpackPlugin({
             title: 'Production',
             template: path.resolve(__dirname, '../src/web/template.html'),
         }),
+
     ],
 };
-
 
